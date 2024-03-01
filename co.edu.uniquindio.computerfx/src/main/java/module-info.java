@@ -5,4 +5,6 @@ module co.edu.uniquindio.computerfx.computerapp {
 
     opens co.edu.uniquindio.computerfx.computerapp to javafx.fxml;
     exports co.edu.uniquindio.computerfx.computerapp;
+    exports co.edu.uniquindio.computerfx.computerapp.controller;
+    opens co.edu.uniquindio.computerfx.computerapp.controller;
 }
