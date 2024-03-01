@@ -30,7 +30,7 @@
                      </toggleGroup>
                   </RadioButton>
                   <RadioButton fx:id="buttonOffice" layoutX="298.0" layoutY="186.0" mnemonicParsing="false" text="Office computer" toggleGroup="$groupGamer" />
-                  <RadioButton fx:id="butonComputerHome" layoutX="496.0" layoutY="186.0" mnemonicParsing="false" text="Home computer" toggleGroup="$groupGamer" />
+                  <RadioButton fx:id="buttonHomeCom" layoutX="496.0" layoutY="186.0" mnemonicParsing="false" text="Home computer" toggleGroup="$groupGamer" />
                   <TextField fx:id="processortxt" layoutX="149.0" layoutY="32.0" prefHeight="25.0" prefWidth="165.0" />
                   <TextField fx:id="memoryramtxt" layoutX="149.0" layoutY="88.0" prefHeight="25.0" prefWidth="165.0" />
                   <TextField fx:id="graphiccardtxt" layoutX="149.0" layoutY="146.0" prefHeight="25.0" prefWidth="165.0" />

@@ -1,5 +1,4 @@
 package co.edu.uniquindio.computerfx.computerapp.model;
-
 public class Computer {
     private String processor;
     private int memoryRAM;
@@ -85,7 +84,6 @@ public class Computer {
     public void setMotherBoard(String motherBoard) {
         this.motherBoard = motherBoard;
     }
-
     @Override
     public String toString() {
         return "Computer{" +

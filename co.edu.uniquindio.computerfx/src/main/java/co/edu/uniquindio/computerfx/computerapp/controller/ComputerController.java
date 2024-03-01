@@ -2,6 +2,7 @@ package co.edu.uniquindio.computerfx.computerapp.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import co.edu.uniquindio.computerfx.computerapp.model.Computer;
 import javafx.event.ActionEvent;
@@ -24,7 +25,6 @@ public class ComputerController {
 
     @FXML
     private TextField motherboardtxt;
-
     @FXML
     private TextArea getResult;
 
@@ -55,6 +55,8 @@ public class ComputerController {
     void onAddComputer(ActionEvent event) {
         createComputer();
     }
+
+
 
     @FXML
     void initialize() {
@@ -103,7 +105,64 @@ public class ComputerController {
                 computer.setModelMotherboard("B550m");
             }
         }
+        logicButtons(computer);
         getResult.setText(computer.toString());
     }
+    private void logicButtons(Computer computer) {
+        switch (1){
+            case 1:
+                System.out.println("case1");
+        }
 
+
+
+
+        Scanner scanner = new Scanner(System.in);
+        if (buttonOffice.isSelected()){
+            if (computer.getProcessor().equalsIgnoreCase("intel")){
+                System.out.println("indicate which processor generation you want: 11th, 12th, 13th");
+                String brand = scanner.nextLine();
+                computer.setGenerationProssesor(brand);
+                System.out.println("indicate which motherboard generation you want: b570, b440");
+                String motherb = scanner.nextLine();
+                computer.setModelMotherboard(motherb);
+            }else{
+                System.out.println("indicate which processor generation you want: 3th, 4th");
+                String brand = scanner.nextLine();
+                computer.setGenerationProssesor(brand);
+                System.out.println("indicate which motherboard generation you want: b450, b520");
+                String motherb = scanner.nextLine();
+                computer.setModelMotherboard(motherb);
+            }
+            
+        } else if (buttonGamer.isSelected()) {
+            if (computer.getProcessor().equalsIgnoreCase("AMD")){
+                System.out.println("indicate which Graphic card generation you want: 4090 or rx 7900xt");
+                String gc = scanner.nextLine();
+                computer.setGraphicCard(gc);
+                computer.setGenerationProssesor("5th");
+            }else {
+                System.out.println("indicate which Graphic card generation you want: 4090 or rx 7900xt");
+                String gc = scanner.nextLine();
+                computer.setGraphicCard(gc);
+                computer.setGenerationProssesor("14th");
+            }
+        } else if (butonComputerHome.isSelected()) {
+            if (computer.getProcessor().equalsIgnoreCase("intel")){
+                System.out.println("indicate which processor generation you want: 8th,9th,10th");
+                String brand = scanner.nextLine();
+                computer.setGenerationProssesor(brand);
+                System.out.println("indicate which motherboard generation you want: b470 or b320");
+                String motherb = scanner.nextLine();
+                computer.setModelMotherboard(motherb);
+            }else{
+                System.out.println("indicate which processor generation you want: 2th, 3th");
+                String brand = scanner.nextLine();
+                computer.setGenerationProssesor(brand);
+                System.out.println("indicate which motherboard generation you want: b320 or b350");
+                String motherb = scanner.nextLine();
+                computer.setModelMotherboard(motherb);
+            }
+        }
+    }
 }
