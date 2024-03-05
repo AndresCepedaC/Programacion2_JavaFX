@@ -12,6 +12,15 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+
 public class ComputerController {
 
     @FXML
@@ -25,6 +34,10 @@ public class ComputerController {
 
     @FXML
     private TextField motherboardtxt;
+
+    @FXML
+    private ToggleGroup groupGamer;
+
     @FXML
     private TextArea getResult;
 
@@ -35,7 +48,7 @@ public class ComputerController {
     private RadioButton buttonGamer;
 
     @FXML
-    private RadioButton butonComputerHome;
+    private RadioButton buttonHomeCom;
 
     @FXML
     private TextField memoryramtxt;
@@ -51,21 +64,21 @@ public class ComputerController {
 
     @FXML
     private TextField powersourcetxt;
+
     @FXML
     void onAddComputer(ActionEvent event) {
         createComputer();
     }
 
-
-
     @FXML
     void initialize() {
         assert buttonOffice != null : "fx:id=\"buttonOffice\" was not injected: check your FXML file 'Computer.fxml'.";
         assert motherboardtxt != null : "fx:id=\"motherboardtxt\" was not injected: check your FXML file 'Computer.fxml'.";
+        assert groupGamer != null : "fx:id=\"groupGamer\" was not injected: check your FXML file 'Computer.fxml'.";
         assert getResult != null : "fx:id=\"getResult\" was not injected: check your FXML file 'Computer.fxml'.";
         assert buttonAddComputer != null : "fx:id=\"buttonAddComputer\" was not injected: check your FXML file 'Computer.fxml'.";
         assert buttonGamer != null : "fx:id=\"buttonGamer\" was not injected: check your FXML file 'Computer.fxml'.";
-        assert butonComputerHome != null : "fx:id=\"butonComputerHome\" was not injected: check your FXML file 'Computer.fxml'.";
+        assert buttonHomeCom != null : "fx:id=\"buttonHomeCom\" was not injected: check your FXML file 'Computer.fxml'.";
         assert memoryramtxt != null : "fx:id=\"memoryramtxt\" was not injected: check your FXML file 'Computer.fxml'.";
         assert graphiccardtxt != null : "fx:id=\"graphiccardtxt\" was not injected: check your FXML file 'Computer.fxml'.";
         assert ssdtxt != null : "fx:id=\"ssdtxt\" was not injected: check your FXML file 'Computer.fxml'.";
@@ -73,6 +86,7 @@ public class ComputerController {
         assert powersourcetxt != null : "fx:id=\"powersourcetxt\" was not injected: check your FXML file 'Computer.fxml'.";
 
     }
+
     private void createComputer() {
         Computer computer = new Computer();
         computer.setProcessor(processortxt.getText());
@@ -86,7 +100,7 @@ public class ComputerController {
             computer.setVelocityMemoryRam(6400);
             computer.setGenerationProssesor("Ultimate Generation");
             computer.setModelMotherboard("Ultimate generation");
-        }else if (butonComputerHome.isSelected()){
+        }else if (buttonHomeCom.isSelected()){
             computer.setVelocityMemoryRam(1600);
             if (computer.getProcessor().equalsIgnoreCase("intel")){
                 computer.setGenerationProssesor("8th generation");
@@ -105,15 +119,9 @@ public class ComputerController {
                 computer.setModelMotherboard("B550m");
             }
         }
-        logicButtons(computer);
         getResult.setText(computer.toString());
     }
     private void logicButtons(Computer computer) {
-        switch (1){
-            case 1:
-                System.out.println("case1");
-        }
-
 
 
 
@@ -134,7 +142,7 @@ public class ComputerController {
                 String motherb = scanner.nextLine();
                 computer.setModelMotherboard(motherb);
             }
-            
+
         } else if (buttonGamer.isSelected()) {
             if (computer.getProcessor().equalsIgnoreCase("AMD")){
                 System.out.println("indicate which Graphic card generation you want: 4090 or rx 7900xt");
@@ -147,7 +155,7 @@ public class ComputerController {
                 computer.setGraphicCard(gc);
                 computer.setGenerationProssesor("14th");
             }
-        } else if (butonComputerHome.isSelected()) {
+        } else if (buttonHomeCom.isSelected()) {
             if (computer.getProcessor().equalsIgnoreCase("intel")){
                 System.out.println("indicate which processor generation you want: 8th,9th,10th");
                 String brand = scanner.nextLine();
@@ -164,5 +172,6 @@ public class ComputerController {
                 computer.setModelMotherboard(motherb);
             }
         }
+        getResult.setText(computer.toString());
     }
 }

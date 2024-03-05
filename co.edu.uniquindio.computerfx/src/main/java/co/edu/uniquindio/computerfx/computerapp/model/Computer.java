@@ -84,6 +84,7 @@ public class Computer {
     public void setMotherBoard(String motherBoard) {
         this.motherBoard = motherBoard;
     }
+
     @Override
     public String toString() {
         return "Computer{" +
